@@ -1,0 +1,112 @@
+[
+  {
+    "id": 1,
+    "name": "Dell XPS 13",
+    "brand": "Dell",
+    "price": 25000000,
+    "image": "https://cdn.tgdd.vn/Products/Images/44/252545/dell-xps-13-9315-4y0vh-1-1-600x600.jpg",
+    "cpu": "Intel Core i7-1360P",
+    "ram": "16GB LPDDR5",
+    "storage": "512GB SSD",
+    "screen": "13.4 inch FHD+"
+  },
+  {
+    "id": 2,
+    "name": "HP Pavilion 15",
+    "brand": "HP",
+    "price": 18900000,
+    "image": "https://cdn.tgdd.vn/Products/Images/44/285028/hp-pavilion-15-eg2125tu-8j0d3pa-1-600x600.jpg",
+    "cpu": "Intel Core i5-1240P",
+    "ram": "8GB DDR4",
+    "storage": "256GB SSD",
+    "screen": "15.6 inch FHD"
+  },
+  {
+    "id": 3,
+    "name": "Asus ROG Strix G16",
+    "brand": "Asus",
+    "price": 32900000,
+    "image": "https://cdn.tgdd.vn/Products/Images/44/287362/asus-rog-strix-g16-g614jv-n4059w-1-600x600.jpg",
+    "cpu": "Intel Core i9-13980HX",
+    "ram": "32GB DDR5",
+    "storage": "1TB SSD",
+    "screen": "16 inch QHD 240Hz"
+  },
+  {
+    "id": 4,
+    "name": "Acer Aspire 5",
+    "brand": "Acer",
+    "price": 15900000,
+    "image": "https://cdn.tgdd.vn/Products/Images/44/270658/acer-aspire-5-a515-57-56v6-nx-k0rsv-001-1-600x600.jpg",
+    "cpu": "Intel Core i5-1235U",
+    "ram": "8GB DDR4",
+    "storage": "512GB SSD",
+    "screen": "15.6 inch FHD"
+  },
+  {
+    "id": 5,
+    "name": "MacBook Air M2",
+    "brand": "Apple",
+    "price": 28900000,
+    "image": "https://cdn.tgdd.vn/Products/Images/44/296401/macbook-air-m2-2023-starlight-1-600x600.jpg",
+    "cpu": "Apple M2",
+    "ram": "8GB Unified",
+    "storage": "256GB SSD",
+    "screen": "13.6 inch Liquid Retina"
+  },
+  {
+    "id": 6,
+    "name": "Dell Inspiron 14",
+    "brand": "Dell",
+    "price": 19900000,
+    "image": "https://cdn.tgdd.vn/Products/Images/44/258156/dell-inspiron-14-5410-0vd7j-1-600x600.jpg",
+    "cpu": "Intel Core i5-1135G7",
+    "ram": "8GB DDR4",
+    "storage": "512GB SSD",
+    "screen": "14 inch FHD"
+  },
+  {
+    "id": 7,
+    "name": "HP Victus 16",
+    "brand": "HP",
+    "price": 23900000,
+    "image": "https://cdn.tgdd.vn/Products/Images/44/281479/hp-victus-16-d0097tx-5j4y5pa-1-600x600.jpg",
+    "cpu": "AMD Ryzen 7 5800H",
+    "ram": "16GB DDR4",
+    "storage": "512GB SSD",
+    "screen": "16.1 inch FHD 144Hz"
+  },
+  {
+    "id": 8,
+    "name": "Asus Zenbook 14",
+    "brand": "Asus",
+    "price": 20900000,
+    "image": "https://cdn.tgdd.vn/Products/Images/44/287356/asus-zenbook-14-ux3402za-kl031w-1-600x600.jpg",
+    "cpu": "Intel Core i5-1240P",
+    "ram": "16GB LPDDR5",
+    "storage": "512GB SSD",
+    "screen": "14 inch 2.8K OLED"
+  },
+  {
+    "id": 9,
+    "name": "Acer Swift 3",
+    "brand": "Acer",
+    "price": 16900000,
+    "image": "https://cdn.tgdd.vn/Products/Images/44/253281/acer-swift-3-sf314-511-75mw-nx-ab1sv-002-1-600x600.jpg",
+    "cpu": "Intel Core i7-1165G7",
+    "ram": "16GB LPDDR4X",
+    "storage": "512GB SSD",
+    "screen": "14 inch FHD IPS"
+  },
+  {
+    "id": 10,
+    "name": "MacBook Pro M3",
+    "brand": "Apple",
+    "price": 41900000,
+    "image": "https://cdn.tgdd.vn/Products/Images/44/296389/macbook-pro-m3-2023-1-600x600.jpg",
+    "cpu": "Apple M3 Pro",
+    "ram": "18GB Unified",
+    "storage": "512GB SSD",
+    "screen": "14.2 inch Liquid Retina XDR"
+  }
+]
