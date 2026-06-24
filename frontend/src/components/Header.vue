@@ -9,18 +9,13 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav me-auto">
-          <li class="nav-item">
-            <router-link to="/" class="nav-link" active-class="active">Trang chủ</router-link>
-          </li>
-          <li class="nav-item">
-            <router-link to="/admin" class="nav-link" active-class="active">Quản trị</router-link>
-          </li>
+          <li class="nav-item"><router-link to="/" class="nav-link">Trang chủ</router-link></li>
+          <li class="nav-item"><router-link to="/admin" class="nav-link">Quản trị</router-link></li>
         </ul>
         <router-link to="/cart" class="btn btn-outline-light position-relative">
           <i class="fas fa-shopping-cart"></i>
-          <span v-if="cartStore.count > 0" 
-                class="badge bg-danger rounded-pill position-absolute top-0 start-100 translate-middle">
-            {{ cartStore.count }}
+          <span v-if="store.count > 0" class="badge bg-danger rounded-pill position-absolute top-0 start-100 translate-middle">
+            {{ store.count }}
           </span>
         </router-link>
       </div>
@@ -32,9 +27,6 @@
 import { onMounted } from 'vue'
 import { useCartStore } from '../stores/cart'
 
-const cartStore = useCartStore()
-
-onMounted(() => {
-  cartStore.loadCart()
-})
+const store = useCartStore()
+onMounted(() => store.loadCart())
 </script>

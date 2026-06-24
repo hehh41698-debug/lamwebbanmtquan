@@ -21,7 +21,7 @@
     <div class="row g-4">
       <div class="col-md-5">
         <img :src="product.image" class="img-fluid rounded shadow" :alt="product.name" 
-             style="background: #f8f9fa; padding: 20px;">
+             style="background: #f8f9fa; padding: 20px; width: 100%; height: 400px; object-fit: contain;">
       </div>
       <div class="col-md-7">
         <h1 class="display-6 fw-bold">{{ product.name }}</h1>
@@ -34,20 +34,20 @@
         <table class="table table-bordered">
           <tbody>
             <tr>
-              <th style="width: 30%;">CPU</th>
-              <td>{{ product.cpu }}</td>
+              <th style="width: 30%; background-color: #f8f9fa;">CPU</th>
+              <td>{{ product.cpu || 'Chưa cập nhật' }}</td>
             </tr>
             <tr>
-              <th>RAM</th>
-              <td>{{ product.ram }}</td>
+              <th style="background-color: #f8f9fa;">RAM</th>
+              <td>{{ product.ram || 'Chưa cập nhật' }}</td>
             </tr>
             <tr>
-              <th>Ổ cứng</th>
-              <td>{{ product.storage }}</td>
+              <th style="background-color: #f8f9fa;">Ổ cứng</th>
+              <td>{{ product.storage || 'Chưa cập nhật' }}</td>
             </tr>
             <tr>
-              <th>Màn hình</th>
-              <td>{{ product.screen }}</td>
+              <th style="background-color: #f8f9fa;">Màn hình</th>
+              <td>{{ product.screen || 'Chưa cập nhật' }}</td>
             </tr>
           </tbody>
         </table>
@@ -75,7 +75,7 @@ const loading = ref(false)
 const adding = ref(false)
 
 const formatPrice = (price) => {
-  return price.toLocaleString('vi-VN') + 'đ'
+  return price ? price.toLocaleString('vi-VN') + 'đ' : '0đ'
 }
 
 const loadProduct = async () => {
@@ -84,8 +84,9 @@ const loadProduct = async () => {
     const id = route.params.id
     const response = await api.get(`/products/${id}`)
     product.value = response.data
+    console.log('📦 Đã load sản phẩm:', product.value.name)
   } catch (error) {
-    console.error('Lỗi load sản phẩm:', error)
+    console.error('❌ Lỗi load sản phẩm:', error)
     product.value = null
   } finally {
     loading.value = false
@@ -98,9 +99,10 @@ const addToCart = async () => {
   adding.value = true
   try {
     await cartStore.addToCart(product.value.id)
-    alert(`Đã thêm "${product.value.name}" vào giỏ hàng!`)
+    alert(`✅ Đã thêm "${product.value.name}" vào giỏ hàng!`)
   } catch (error) {
-    console.error('Lỗi thêm vào giỏ:', error)
+    console.error('❌ Lỗi thêm vào giỏ:', error)
+    alert('❌ Có lỗi xảy ra khi thêm vào giỏ hàng!')
   } finally {
     adding.value = false
   }

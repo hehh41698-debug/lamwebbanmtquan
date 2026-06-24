@@ -8,7 +8,8 @@
     <!-- Tìm kiếm và lọc -->
     <div class="row g-2 mb-4">
       <div class="col-md-6">
-        <input type="text" v-model="searchText" class="form-control" placeholder="Tìm kiếm sản phẩm..." @keyup.enter="searchProducts">
+        <input type="text" v-model="searchText" class="form-control" 
+               placeholder="Tìm kiếm sản phẩm..." @keyup.enter="searchProducts">
       </div>
       <div class="col-md-4">
         <select v-model="selectedBrand" class="form-select" @change="searchProducts">
@@ -30,8 +31,16 @@
       </div>
     </div>
 
+    <div v-else-if="products.length === 0" class="text-center py-5">
+      <h3 class="text-muted">😅 Không có sản phẩm nào</h3>
+      <p class="text-muted">Vui lòng kiểm tra kết nối với server</p>
+      <button @click="loadProducts" class="btn btn-primary mt-3">
+        <i class="fas fa-sync me-1"></i> Tải lại
+      </button>
+    </div>
+
     <div v-else-if="filteredProducts.length === 0" class="text-center py-5">
-      <h3 class="text-muted">😅 Không tìm thấy sản phẩm</h3>
+      <h3 class="text-muted">😅 Không tìm thấy sản phẩm phù hợp</h3>
     </div>
 
     <div v-else class="row g-4">
@@ -75,9 +84,12 @@ const loadProducts = async () => {
   loading.value = true
   try {
     const response = await api.get('/products')
+    console.log('📦 Đã nhận:', response.data.length, 'sản phẩm')
     products.value = response.data
   } catch (error) {
-    console.error('Lỗi load sản phẩm:', error)
+    console.error('❌ Lỗi load sản phẩm:', error)
+    products.value = []
+    alert('Không thể kết nối đến server! Vui lòng kiểm tra backend.')
   } finally {
     loading.value = false
   }
@@ -88,7 +100,7 @@ const loadBrands = async () => {
     const response = await api.get('/brands')
     brands.value = response.data
   } catch (error) {
-    console.error('Lỗi load thương hiệu:', error)
+    console.error('❌ Lỗi load thương hiệu:', error)
   }
 }
 

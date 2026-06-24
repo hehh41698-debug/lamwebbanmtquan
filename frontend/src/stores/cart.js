@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import { ref, computed } from 'vue'
+import { ref } from 'vue'
 import api from '../api'
 
 export const useCartStore = defineStore('cart', () => {
@@ -7,81 +7,60 @@ export const useCartStore = defineStore('cart', () => {
   const count = ref(0)
   const total = ref(0)
 
-  const getCount = computed(() => count.value)
-  const getTotal = computed(() => total.value)
-  const getItems = computed(() => items.value)
-
-  // Load giỏ hàng từ server
   const loadCart = async () => {
     try {
-      const response = await api.get('/cart')
-      items.value = response.data.items || []
-      total.value = response.data.total || 0
-      count.value = response.data.count || 0
+      const res = await api.get('/cart')
+      items.value = res.data.items || []
+      total.value = res.data.total || 0
+      count.value = res.data.count || 0
     } catch (error) {
-      console.error('Lỗi load giỏ hàng:', error)
+      console.error('Lỗi load cart:', error)
     }
   }
 
-  // Thêm vào giỏ hàng
-  const addToCart = async (productId, quantity = 1) => {
+  const addToCart = async (id, quantity = 1) => {
     try {
-      await api.post('/cart/add', { id: productId, quantity })
+      await api.post('/cart/add', { id, quantity })
       await loadCart()
       return true
     } catch (error) {
-      console.error('Lỗi thêm vào giỏ hàng:', error)
+      console.error('Lỗi thêm cart:', error)
       return false
     }
   }
 
-  // Cập nhật giỏ hàng
-  const updateCart = async (productId, quantity) => {
+  const updateCart = async (id, quantity) => {
     try {
-      await api.post('/cart/update', { id: productId, quantity })
+      await api.post('/cart/update', { id, quantity })
       await loadCart()
       return true
     } catch (error) {
-      console.error('Lỗi cập nhật giỏ hàng:', error)
+      console.error('Lỗi update cart:', error)
       return false
     }
   }
 
-  // Xóa khỏi giỏ hàng
-  const removeFromCart = async (productId) => {
+  const removeFromCart = async (id) => {
     try {
-      await api.post('/cart/remove', { id: productId })
+      await api.post('/cart/remove', { id })
       await loadCart()
       return true
     } catch (error) {
-      console.error('Lỗi xóa khỏi giỏ hàng:', error)
+      console.error('Lỗi remove cart:', error)
       return false
     }
   }
 
-  // Xóa toàn bộ giỏ hàng
   const clearCart = async () => {
     try {
       await api.post('/cart/clear')
       await loadCart()
       return true
     } catch (error) {
-      console.error('Lỗi xóa giỏ hàng:', error)
+      console.error('Lỗi clear cart:', error)
       return false
     }
   }
 
-  return {
-    items,
-    count,
-    total,
-    getCount,
-    getTotal,
-    getItems,
-    loadCart,
-    addToCart,
-    updateCart,
-    removeFromCart,
-    clearCart
-  }
+  return { items, count, total, loadCart, addToCart, updateCart, removeFromCart, clearCart }
 })

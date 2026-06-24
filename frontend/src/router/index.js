@@ -7,12 +7,12 @@ import Success from '../views/Success.vue'
 import Admin from '../views/Admin.vue'
 
 const routes = [
-  { path: '/', name: 'Home', component: Home },
-  { path: '/product/:id', name: 'Detail', component: Detail },
-  { path: '/cart', name: 'Cart', component: Cart },
-  { path: '/checkout', name: 'Checkout', component: Checkout },
-  { path: '/success', name: 'Success', component: Success },
-  { path: '/admin', name: 'Admin', component: Admin }
+  { path: '/', component: Home },
+  { path: '/product/:id', component: Detail },
+  { path: '/cart', component: Cart },
+  { path: '/checkout', component: Checkout },
+  { path: '/success', component: Success },
+  { path: '/admin', component: Admin }
 ]
 
 const router = createRouter({
